@@ -27,7 +27,7 @@
     });
   }, {threshold: 0.15});
 
-  $$('.row').forEach(function(r, i){
+  $$('.pkg').forEach(function(r, i){
     r.style.transitionDelay=(i%4*.08)+'s';
     io.observe(r);
   });
@@ -98,6 +98,13 @@
       window.open('https://wa.me/914428479000?text='+encodeURIComponent(t),'_blank');
     });
   }
+
+  // package "Enquire" buttons prefill the journey field
+  $$('.pkg-enquire').forEach(function(a){
+    a.addEventListener('click',function(){
+      if(form && form.j) form.j.value=a.dataset.journey;
+    });
+  });
 
   // magnetic button
   var m=$('#mag');
