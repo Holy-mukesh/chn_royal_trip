@@ -55,7 +55,8 @@
     themeWrap.innerHTML = TH.map(function(t, i){
       var n = PK.filter(function(p){ return p.themes.indexOf(t.id) > -1; }).length;
       return '<button type="button" class="theme rv" data-theme="' + t.id + '" style="--i:' + i + '">' +
-        '<span class="theme-art">' + scene(t.scene, t.id) + '</span>' +
+        '<span class="theme-art">' + scene(t.scene, t.id) +
+          (t.img ? '<img src="' + t.img + '" alt="' + esc(t.id) + ' trips" loading="lazy" onload="this.classList.add(\'ok\')" onerror="this.remove()">' : '') + '</span>' +
         '<b>' + t.id + '</b><small>' + n + ' packages</small></button>';
     }).join('');
   }
@@ -169,11 +170,18 @@
       var items = PK.filter(function(p){ return p.state === s.id; });
       var min = Math.min.apply(null, items.map(function(p){ return p.price; }));
       var photo = items.filter(function(p){ return p.img; })[0];
-      return '<button type="button" class="place rv' + (i < 2 ? ' big' : '') + '" data-state="' + s.id + '">' +
-        '<span class="place-art">' + (photo ? media(photo) : scene(s.scene, s.name)) + '</span>' +
+      var top = items.slice().sort(function(a, b){ return a.price - b.price; }).slice(0, 3);
+      return '<button type="button" class="place rv" data-state="' + s.id + '" style="--i:' + i + '">' +
+        '<span class="place-art">' + (photo ? media(photo) : scene(s.scene, s.name, i).replace('xMidYMid slice', 'xMidYMax slice')) + '</span>' +
+        '<span class="place-num">' + String(i + 1).padStart(2, '0') + '</span>' +
+        '<span class="place-count">' + items.length + ' tours</span>' +
         '<span class="place-info"><b>' + esc(s.name) + '</b>' +
-        '<span class="place-stats"><span><small>Tours</small>' + items.length + '</span><span><small>Starting</small>' + inr(min) + '</span></span>' +
-        '<span class="place-cta">View Tours</span></span></button>';
+          '<span class="place-from">Starting from <strong>' + inr(min) + '</strong></span>' +
+          '<span class="place-more"><span class="place-list">' + top.map(function(p){
+            return '<span>' + esc(p.title) + '<i class="pl-meta">' + p.days + 'D \u00B7 ' + inr(p.price) + '</i></span>';
+          }).join('') + '</span></span>' +
+          '<span class="place-cta">View Tours <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>' +
+        '</span></button>';
     }).join('');
     places.addEventListener('click', function(e){
       var b = e.target.closest('.place'); if (!b) return;

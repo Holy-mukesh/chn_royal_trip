@@ -19,13 +19,14 @@ window.STATES = [
   {id: 'th', name: 'Thailand', scene: 'pagoda'}
 ];
 
+/* Theme photos: save them as images/themes/<file> below. Until a file exists the illustration shows. */
 window.THEMES = [
-  {id: 'Honeymoon', scene: 'beach'},
-  {id: 'Friends/Group', scene: 'snow'},
-  {id: 'Adventure', scene: 'ladakh'},
-  {id: 'Nature', scene: 'hills'},
-  {id: 'Solo', scene: 'monastery'},
-  {id: 'Family', scene: 'palace'}
+  {id: 'Honeymoon', scene: 'beach', img: 'images/themes/honeymoon.jpg'},
+  {id: 'Friends/Group', scene: 'snow', img: 'images/themes/friends-group.jpg'},
+  {id: 'Adventure', scene: 'ladakh', img: 'images/themes/adventure.jpg'},
+  {id: 'Nature', scene: 'hills', img: 'images/themes/nature.jpg'},
+  {id: 'Solo', scene: 'monastery', img: 'images/themes/solo.jpg'},
+  {id: 'Family', scene: 'palace', img: 'images/themes/family.jpg'}
 ];
 
 window.PACKAGES = [
