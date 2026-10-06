@@ -113,44 +113,6 @@
     });
   }
 
-  // package "Enquire" buttons prefill the journey field
-  $$('.pkg-enquire').forEach(function(a){
-    a.addEventListener('click',function(){
-      if(form && form.j) form.j.value=a.dataset.journey;
-    });
-  });
-
-  // highlight the nav link of the section in view
-  var links=$$('.nav-links a.nav-item');
-  var nio=new IntersectionObserver(function(es){
-    es.forEach(function(e){
-      if(!e.isIntersecting) return;
-      links.forEach(function(a){
-        a.classList.toggle('active', a.getAttribute('href')==='#'+e.target.id);
-      });
-    });
-  }, {rootMargin: '-45% 0px -50% 0px'});
-  links.forEach(function(a){
-    var sec=$(a.getAttribute('href'));
-    if(sec) nio.observe(sec);
-  });
-
-  // gallery region filter
-  var mosaic=$('.gallery-mosaic');
-  $$('.filters button').forEach(function(b){
-    b.addEventListener('click',function(){
-      var f=b.dataset.f;
-      $$('.filters button').forEach(function(x){x.classList.toggle('on',x===b)});
-      if(mosaic) mosaic.classList.toggle('filtered', f!=='all');
-      $$('.gallery-card').forEach(function(c){
-        var show=f==='all'||c.dataset.r===f;
-        c.classList.toggle('hide',!show);
-        c.classList.remove('pop');
-        if(show){ void c.offsetWidth; c.classList.add('pop'); }
-      });
-    });
-  });
-
   // magnetic button
   var m=$('#mag');
   if(m && m.parentNode){

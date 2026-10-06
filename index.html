@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/catalog.css">
 </head>
 <body>
 
@@ -43,9 +44,10 @@
 
   <div class="nav-links">
     <a class="nav-item" href="#about">About</a>
-    <a class="nav-item" href="#journeys">Packages</a>
+    <a class="nav-item" href="#journeys">Signature</a>
+    <a class="nav-item" href="#destinations">Packages</a>
+    <a class="nav-item" href="#places">Destinations</a>
     <a class="nav-item" href="#gallery">Gallery</a>
-    <a class="nav-item" href="#why">Why Us</a>
     <a class="nav-item" href="#voices">Reviews</a>
     <a class="plan" href="#begin">Plan my journey</a>
   </div>
@@ -53,6 +55,26 @@
 
 <header class="hero" id="top">
   <div class="sun" id="sun"></div>
+  <svg class="flight" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <path id="fp" d="M-40 470C200 420 260 250 470 300S760 470 900 300S1100 120 1260 140"/>
+      <mask id="fm" maskUnits="userSpaceOnUse" x="-100" y="0" width="1400" height="600">
+        <path d="M-40 470C200 420 260 250 470 300S760 470 900 300S1100 120 1260 140" pathLength="1" stroke="#fff" stroke-width="8" fill="none" stroke-dasharray="1 1" stroke-dashoffset="1">
+          <animate attributeName="stroke-dashoffset" values="1;0;0" keyTimes="0;0.8;1" keySplines=".22 1 .36 1;0 0 1 1" calcMode="spline" dur="8s" begin="3s" repeatCount="indefinite"/>
+        </path>
+      </mask>
+    </defs>
+    <g opacity="0">
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.8;1" dur="8s" begin="3s" repeatCount="indefinite"/>
+      <use href="#fp" class="flight-trail" mask="url(#fm)"/>
+      <g>
+        <animateMotion dur="8s" begin="3s" repeatCount="indefinite" rotate="auto" keyPoints="0;1;1" keyTimes="0;0.8;1" keySplines=".22 1 .36 1;0 0 1 1" calcMode="spline"><mpath href="#fp"/></animateMotion>
+        <g transform="rotate(45) translate(-14 -14) scale(1.2)">
+          <path d="M22 2L2 10l7 3 3 7 3-6 7-12z" fill="#fff"/><path d="M9 13l13-11-10 13z" fill="#cfe7ef"/>
+        </g>
+      </g>
+    </g>
+  </svg>
   <div class="brand">
     <div class="curated-pill"><span>Private Journeys Since 2007</span></div>
     <h1><span class="line"><span>Chennai</span></span><span class="line"><span><em>Royal</em> Vacation</span></span><span class="line pvt-line"><span>Pvt. Ltd.</span></span></h1>
@@ -114,7 +136,7 @@
 <section class="journeys" id="journeys">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="sub-head">Tour Packages</span>
+      <span class="sub-head">Premium Private Journeys</span>
       <h3>Signature Journeys</h3>
       <p class="sec-desc">Four private tour packages. Every journey can be changed to suit your dates and group.</p>
     </div>
@@ -128,7 +150,7 @@
         <figure class="pkg-inset"><img src="images/private-chauffeur.jpg" alt="Private chauffeur-driven car" loading="lazy"><figcaption>Private cab</figcaption></figure>
       </div>
       <div class="pkg-body">
-        <h4>The Chola Trail</h4>
+        <h4><a href="#package=chola-trail" data-open="chola-trail">The Chola Trail</a></h4>
         <p class="pkg-route">Chennai &rarr; Mahabalipuram &rarr; Thanjavur</p>
         <p class="pkg-desc">Temple tour of Mahabalipuram and Thanjavur with a historian guide and a Bharatanatyam recital.</p>
         <ul class="pkg-inc" aria-label="What is included">
@@ -142,7 +164,7 @@
         <div class="pkg-price"><small>Starting from</small><b>&#8377;48,500</b><small>per person</small></div>
         <div class="pkg-actions">
           <a class="pkg-call" href="tel:+914428479000" aria-label="Call about The Chola Trail"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg></a>
-          <a class="pkg-enquire" href="#begin" data-journey="The Chola Trail">Enquire</a>
+          <a class="pkg-enquire" href="#package=chola-trail" data-open="chola-trail">View details</a>
         </div>
       </div>
     </article>
@@ -154,7 +176,7 @@
         <figure class="pkg-inset"><img src="images/munnar-tea-hills.jpg" alt="Munnar tea plantations" loading="lazy"><figcaption>Munnar</figcaption></figure>
       </div>
       <div class="pkg-body">
-        <h4>Kerala Backwaters</h4>
+        <h4><a href="#package=kerala-backwaters" data-open="kerala-backwaters">Kerala Backwaters</a></h4>
         <p class="pkg-route">Cochin &rarr; Alleppey &rarr; Munnar</p>
         <p class="pkg-desc">A private houseboat with an onboard chef, Ayurvedic therapy and a tea estate stay in Munnar.</p>
         <ul class="pkg-inc" aria-label="What is included">
@@ -168,7 +190,7 @@
         <div class="pkg-price"><small>Starting from</small><b>&#8377;62,000</b><small>per person</small></div>
         <div class="pkg-actions">
           <a class="pkg-call" href="tel:+914428479000" aria-label="Call about Kerala Backwaters"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg></a>
-          <a class="pkg-enquire" href="#begin" data-journey="Kerala Backwaters">Enquire</a>
+          <a class="pkg-enquire" href="#package=kerala-backwaters" data-open="kerala-backwaters">View details</a>
         </div>
       </div>
     </article>
@@ -180,7 +202,7 @@
         <figure class="pkg-inset"><img src="images/private-chauffeur.jpg" alt="Private chauffeur-driven car" loading="lazy"><figcaption>Private cab</figcaption></figure>
       </div>
       <div class="pkg-body">
-        <h4>Chettinad Mansions</h4>
+        <h4><a href="#package=chettinad" data-open="chettinad">Chettinad Mansions</a></h4>
         <p class="pkg-route">Madurai &rarr; Karaikudi &rarr; Athangudi</p>
         <p class="pkg-desc">Stay in a teak-pillared mansion, cook with a Chettiar family and visit the Athangudi tile makers.</p>
         <ul class="pkg-inc" aria-label="What is included">
@@ -194,7 +216,7 @@
         <div class="pkg-price"><small>Starting from</small><b>&#8377;42,000</b><small>per person</small></div>
         <div class="pkg-actions">
           <a class="pkg-call" href="tel:+914428479000" aria-label="Call about Chettinad Mansions"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg></a>
-          <a class="pkg-enquire" href="#begin" data-journey="Chettinad Mansions">Enquire</a>
+          <a class="pkg-enquire" href="#package=chettinad" data-open="chettinad">View details</a>
         </div>
       </div>
     </article>
@@ -205,7 +227,7 @@
         <span class="pkg-days">7 Days / 6 Nights</span>
       </div>
       <div class="pkg-body">
-        <h4>Andaman Coral</h4>
+        <h4><a href="#package=andaman-coral" data-open="andaman-coral">Andaman Coral</a></h4>
         <p class="pkg-route">Port Blair &rarr; Havelock Island</p>
         <p class="pkg-desc">A private catamaran, a dive master for the reefs and beachfront suites on Radhanagar.</p>
         <ul class="pkg-inc" aria-label="What is included">
@@ -219,10 +241,42 @@
         <div class="pkg-price"><small>Starting from</small><b>&#8377;95,000</b><small>per person</small></div>
         <div class="pkg-actions">
           <a class="pkg-call" href="tel:+914428479000" aria-label="Call about Andaman Coral"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg></a>
-          <a class="pkg-enquire" href="#begin" data-journey="Andaman Coral">Enquire</a>
+          <a class="pkg-enquire" href="#package=andaman-coral" data-open="andaman-coral">View details</a>
         </div>
       </div>
     </article>
+    </div>
+  </div>
+</section>
+
+<section class="themes" id="themes">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sub-head">Travel your way</span>
+      <h3>Explore destinations by theme</h3>
+      <p class="sec-desc">Pick the kind of trip you want and see every package that fits.</p>
+    </div>
+    <div class="theme-grid" id="theme-grid"></div>
+  </div>
+</section>
+
+<section class="destinations" id="destinations">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sub-head">Tour Packages</span>
+      <h3>Package picks state wise</h3>
+      <p class="sec-desc">Domestic and international packages with stays, cabs and sightseeing included.</p>
+    </div>
+    <div class="finder rv">
+      <label class="search"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+        <input id="tour-search" type="search" placeholder="Search Kashmir, honeymoon, houseboat…" aria-label="Search packages"></label>
+      <div class="tabs" id="state-tabs" role="tablist" aria-label="Choose a state"></div>
+    </div>
+    <div class="tour-head" id="tour-heading" aria-live="polite"></div>
+    <div class="carousel">
+      <button type="button" class="car-btn prev" id="tour-prev" aria-label="Previous packages"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+      <div class="tour-track" id="tour-track"></div>
+      <button type="button" class="car-btn next" id="tour-next" aria-label="More packages"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
     </div>
   </div>
 </section>
@@ -238,6 +292,17 @@
       <li class="rv"><span class="step-n">02</span><b>Get your plan &amp; quote</b><p>We reply with a day-by-day plan and a price for your group.</p></li>
       <li class="rv"><span class="step-n">03</span><b>Confirm &amp; travel</b><p>Hold your dates with a deposit. We handle stays, cabs and guides.</p></li>
     </ol>
+  </div>
+</section>
+
+<section class="places" id="places">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="sub-head">Destinations</span>
+      <h3>Places you can explore with us</h3>
+      <p class="sec-desc">Tap a destination to see its tours.</p>
+    </div>
+    <div class="place-grid" id="place-grid"></div>
   </div>
 </section>
 
@@ -451,6 +516,21 @@
   <span>Chennai, since 2007</span>
 </footer>
 
+<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="sheet-backdrop" data-close></div>
+  <div class="sheet-panel">
+    <button type="button" class="sheet-close" data-close aria-label="Close package details"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <div id="sheet-body"></div>
+  </div>
+</div>
+
+<a class="wa-float" href="https://wa.me/914428479000" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.7 11.7 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"/></svg>
+</a>
+
+<script src="js/packages.js"></script>
+<script src="js/scenes.js"></script>
+<script src="js/catalog.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
