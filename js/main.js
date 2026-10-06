@@ -27,10 +27,6 @@
     });
   }, {threshold: 0.15});
 
-  $$('.pkg').forEach(function(r, i){
-    r.style.transitionDelay=(i%4*.07)+'s';
-    io.observe(r);
-  });
   var cta=$('.cta');
   if(cta) io.observe(cta);
 

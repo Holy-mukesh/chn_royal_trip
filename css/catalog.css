@@ -195,6 +195,29 @@ html.locked {
   transition: transform .5s var(--out), box-shadow .5s var(--out);
 }
 
+.theme-art {
+  position: relative;
+}
+
+/* photo sits over the illustration and fades in once it has loaded */
+.theme-art img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .6s, transform .8s var(--out);
+}
+
+.theme-art img.ok {
+  opacity: 1;
+}
+
+.theme:hover .theme-art img {
+  transform: scale(1.1);
+}
+
 .theme:hover .theme-art, .theme:focus-visible .theme-art {
   transform: translateY(-8px) rotate(-3deg) scale(1.04);
   box-shadow: 0 0 0 3px var(--sun), 0 26px 50px rgba(232, 68, 26, .3);
@@ -601,50 +624,74 @@ html.locked {
   text-decoration: underline;
 }
 
-/* ---------- places grid ---------- */
+/* ---------- places grid (bento) ---------- */
 .places {
   padding: var(--sec) 0;
   border-top: 1px solid rgba(243, 236, 224, 0.08);
 }
 
+.places .wrap {
+  max-width: 1480px;
+}
+
 .place-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-auto-rows: 220px;
-  gap: 14px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: clamp(230px, 24vw, 330px);
+  grid-auto-flow: dense;
+  gap: 18px;
 }
 
 .place {
-  grid-column: span 2;
+  grid-column: span 4;
   position: relative;
   border: 0;
   padding: 0;
   font: inherit;
   color: #fff;
-  border-radius: 14px;
+  border-radius: 22px;
   overflow: hidden;
   cursor: pointer;
   text-align: left;
   background: var(--deep);
-  transform: perspective(900px) rotateX(var(--rx, 0)) rotateY(var(--ry, 0));
-  transition: transform .25s ease-out, opacity .7s var(--out), box-shadow .4s;
+  isolation: isolate;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .35);
+  transform: perspective(1000px) rotateX(var(--rx, 0)) rotateY(var(--ry, 0));
+  transition: transform .25s ease-out, opacity .8s var(--out), box-shadow .4s;
 }
 
+.place:nth-child(12n+1) { grid-column: span 7; grid-row: span 2; }
+.place:nth-child(12n+2), .place:nth-child(12n+3) { grid-column: span 5; }
+.place:nth-child(12n+7) { grid-column: span 5; grid-row: span 2; }
+.place:nth-child(12n+8), .place:nth-child(12n+9) { grid-column: span 7; }
+
 .place.rv {
-  transform: translateY(22px);
+  opacity: 0;
+  transform: translateY(40px) scale(.96);
+  transition-delay: calc(var(--i, 0) % 3 * 80ms);
 }
 
 .place.rv.in {
-  transform: perspective(900px) rotateX(var(--rx, 0)) rotateY(var(--ry, 0));
+  opacity: 1;
+  transform: perspective(1000px) rotateX(var(--rx, 0)) rotateY(var(--ry, 0));
 }
 
-.place.big {
-  grid-column: span 3;
-  grid-row: span 1;
+.place::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 255, .14);
+  pointer-events: none;
+  transition: border-color .4s;
 }
 
 .place:hover {
-  box-shadow: 0 22px 46px rgba(0, 0, 0, .55);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, .55);
+}
+
+.place:hover::after {
+  border-color: rgba(25, 211, 197, .7);
 }
 
 .place-art, .place-art > * {
@@ -656,61 +703,153 @@ html.locked {
 }
 
 .place-art > * {
-  transition: transform 1s var(--out);
+  transition: transform 1.2s var(--out), filter .6s;
+  filter: saturate(1.08) contrast(1.04);
 }
 
 .place:hover .place-art > * {
-  transform: scale(1.08);
+  transform: scale(1.06);
+  filter: saturate(1.2) contrast(1.06);
+}
+
+/* light shade only behind the text so the picture stays clear */
+.place-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 21, 26, .3) 0%, transparent 18%, transparent 70%, rgba(7, 21, 26, .45) 100%);
+  transition: opacity .5s;
+}
+
+.place-num {
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  letter-spacing: .1em;
+  opacity: .85;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, .5);
+}
+
+.place-count {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: .35rem .8rem;
+  border-radius: 99px;
+  font-size: .76rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, .18);
+  border: 1px solid rgba(255, 255, 255, .3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .place-info {
   position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: .45rem;
-  padding: 1rem 1.1rem;
-  background: linear-gradient(180deg, transparent 30%, rgba(7, 21, 26, .85));
+  left: 14px;
+  bottom: 14px;
+  width: min(400px, calc(100% - 28px));
+  display: grid;
+  gap: .25rem;
+  padding: 1rem 1.15rem;
+  border-radius: 16px;
+  background: rgba(7, 21, 26, .5);
+  border: 1px solid rgba(255, 255, 255, .14);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: background .4s;
+}
+
+.place:hover .place-info {
+  background: rgba(7, 21, 26, .6);
 }
 
 .place-info b {
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  line-height: 1.05;
 }
 
-.place-stats {
+.place:nth-child(12n+1) .place-info b {
+  font-size: clamp(2rem, 3.6vw, 3.2rem);
+}
+
+.place-from {
+  font-size: .82rem;
+  opacity: .85;
+}
+
+.place-from strong {
+  color: #19d3c5;
+  font-size: 1rem;
+}
+
+/* top picks slide open on hover */
+.place-more {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .5s var(--out);
+}
+
+.place-list {
+  overflow: hidden;
+  display: grid;
+  gap: .3rem;
+}
+
+.place-list span {
   display: flex;
-  gap: 1.6rem;
-  font-weight: 600;
-  font-size: .95rem;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: .45rem;
+  font-size: .8rem;
+  border-top: 1px solid rgba(255, 255, 255, .12);
 }
 
-.place-stats span {
-  display: flex;
-  flex-direction: column;
+.place-list span:first-child {
+  margin-top: .5rem;
 }
 
-.place-stats small {
-  font-weight: 400;
-  font-size: .7rem;
-  opacity: .75;
+.place-list .pl-meta {
+  flex: none;
+  font-style: normal;
+  color: rgba(255, 255, 255, .78);
+}
+
+.place:hover .place-more, .place:focus-visible .place-more {
+  grid-template-rows: 1fr;
 }
 
 .place-cta {
-  align-self: flex-start;
-  margin-top: .2rem;
-  padding: .4rem .9rem;
-  border-radius: 6px;
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  margin-top: .5rem;
+  padding: .5rem 1rem;
+  border-radius: 99px;
   background: #19d3c5;
   color: var(--night);
-  font-size: .78rem;
+  font-size: .8rem;
   font-weight: 600;
-  transition: transform .3s var(--out), background .3s;
+  transition: gap .3s var(--out), background .3s;
+}
+
+.place-cta svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .place:hover .place-cta {
-  transform: translateX(4px);
+  gap: .75rem;
   background: #fff;
 }
 
@@ -1308,16 +1447,6 @@ html.locked {
 
 @keyframes ring { to { transform: scale(1.7); opacity: 0; } }
 
-/* ---------- signature card title link ---------- */
-.pkg-body h4 a {
-  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
-  transition: background-size .4s var(--out);
-}
-
-.pkg-body h4 a:hover {
-  background-size: 100% 1px;
-}
-
 /* ---------- responsive ---------- */
 @media (max-width: 1100px) {
   .tour-track { grid-auto-columns: calc((100% - 2 * 20px) / 3); }
@@ -1327,9 +1456,10 @@ html.locked {
 @media (max-width: 860px) {
   .theme-grid { grid-template-columns: repeat(3, 1fr); }
   .tour-track { grid-auto-columns: calc((100% - 20px) / 2); }
-  .place-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 190px; }
-  .place, .place.big { grid-column: span 1; }
-  .place.big:first-child { grid-column: span 2; }
+  .place-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 260px; gap: 14px; }
+  .place-grid .place { grid-column: span 1; grid-row: span 1; }
+  .place-grid .place:nth-child(5n+1) { grid-column: span 2; grid-row: span 1; }
+  .place-more { display: none; }
   .sh-grid { grid-template-columns: 1fr; }
   .sh-side { order: -1; }
   .book { position: static; }
@@ -1342,7 +1472,8 @@ html.locked {
   .theme-grid { grid-template-columns: repeat(3, 1fr); gap: .8rem; }
   .theme b { font-size: 1rem; }
   .tour-track { grid-auto-columns: 78%; }
-  .place-grid { grid-auto-rows: 160px; }
+  .place-grid { grid-template-columns: 1fr; grid-auto-rows: 240px; }
+  .place-grid .place, .place-grid .place:nth-child(5n+1) { grid-column: span 1; }
   .sheet-panel { height: 100%; border-radius: 0; }
 }
 
