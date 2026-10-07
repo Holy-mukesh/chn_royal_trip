@@ -7,6 +7,7 @@
   var PHONE = '914428479000', TEL = '+914428479000';
   var byId = {}; PK.forEach(function(p){ byId[p.id] = p; });
   var stateName = {}; ST.forEach(function(s){ stateName[s.id] = s.name; });
+  var statePhoto = {}; ST.forEach(function(s){ if (s.img) statePhoto[s.id] = s.img; });
 
   function inr(n){ return '₹' + Math.round(n).toLocaleString('en-IN'); }
   function off(p){ return p.mrp ? Math.round((1 - p.price / p.mrp) * 100) : 0; }
@@ -14,7 +15,8 @@
   function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]; }); }
   function seed(s){ var h = 0; for (var i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0; return h; }
   function media(p, cls){
-    return p.img ? '<img class="' + (cls || '') + '" src="' + p.img + '" alt="' + esc(p.title) + '" loading="lazy">' : scene(p.scene, p.title, seed(p.id));
+    var src = p.img || (p.state && statePhoto[p.state]) || 'images/chola-trail.jpg';
+    return '<img class="' + (cls || '') + '" src="' + src + '" alt="' + esc(p.title) + '" loading="lazy">';
   }
 
   var ICON = {
@@ -169,7 +171,7 @@
     places.innerHTML = ST.map(function(s, i){
       var items = PK.filter(function(p){ return p.state === s.id; });
       var min = Math.min.apply(null, items.map(function(p){ return p.price; }));
-      var photo = items.filter(function(p){ return p.img; })[0];
+      var photo = (s.img ? {img: s.img, title: s.name} : null) || items.filter(function(p){ return p.img; })[0];
       var top = items.slice().sort(function(a, b){ return a.price - b.price; }).slice(0, 3);
       return '<button type="button" class="place rv" data-state="' + s.id + '" style="--i:' + i + '">' +
         '<span class="place-art">' + (photo ? media(photo) : scene(s.scene, s.name, i).replace('xMidYMid slice', 'xMidYMax slice')) + '</span>' +

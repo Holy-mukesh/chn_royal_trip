@@ -99,6 +99,27 @@
     cio.observe(el);
   });
 
+  // gallery filter
+  var filters=$('.filters'), mosaic=$('.gallery-mosaic');
+  if(filters && mosaic){
+    filters.addEventListener('click',function(e){
+      var btn=e.target.closest('button');
+      if(!btn || !btn.dataset.f) return;
+      $$('button', filters).forEach(function(b){ b.classList.toggle('on', b===btn); });
+      var f=btn.dataset.f;
+      mosaic.classList.toggle('filtered', f!=='all');
+      $$('.gallery-card', mosaic).forEach(function(card){
+        var match=f==='all' || card.dataset.r===f;
+        card.classList.toggle('hide', !match);
+        if(match){
+          card.classList.remove('pop');
+          void card.offsetWidth;
+          card.classList.add('pop');
+        }
+      });
+    });
+  }
+
   // whatsapp form handler
   var form=$('#f');
   if(form){

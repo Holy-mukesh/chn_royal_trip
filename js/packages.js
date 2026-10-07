@@ -5,18 +5,18 @@
    inc / exc / prep (extra lines added to the defaults in catalog.js), tm (tour manager).
    To use a real photo, save it as images/pkg/<id>.jpg — it replaces the illustration. */
 window.STATES = [
-  {id: 'tn', name: 'Tamil Nadu', scene: 'temple'},
-  {id: 'kl', name: 'Kerala', scene: 'hills'},
-  {id: 'an', name: 'Andaman', scene: 'beach'},
-  {id: 'sk', name: 'Sikkim & Darjeeling', scene: 'monastery'},
-  {id: 'hp', name: 'Himachal & Spiti', scene: 'snow'},
-  {id: 'jk', name: 'Jammu & Kashmir', scene: 'lake'},
-  {id: 'la', name: 'Leh Ladakh', scene: 'ladakh'},
-  {id: 'rj', name: 'Rajasthan', scene: 'desert'},
-  {id: 'uk', name: 'Uttarakhand', scene: 'river'},
-  {id: 'dl', name: 'Delhi & Agra', scene: 'city'},
-  {id: 'bt', name: 'Bhutan', scene: 'monastery'},
-  {id: 'th', name: 'Thailand', scene: 'pagoda'}
+  {id: 'tn', name: 'Tamil Nadu', scene: 'temple', img: 'images/chola-trail.jpg'},
+  {id: 'kl', name: 'Kerala', scene: 'hills', img: 'images/kerala-backwaters.jpg'},
+  {id: 'an', name: 'Andaman', scene: 'beach', img: 'images/andaman-coral.jpg'},
+  {id: 'sk', name: 'Sikkim & Darjeeling', scene: 'monastery', img: 'images/sikkimdarjlind.jpg'},
+  {id: 'hp', name: 'Himachal & Spiti', scene: 'snow', img: 'images/himachalandspiti.jpg'},
+  {id: 'jk', name: 'Jammu & Kashmir', scene: 'lake', img: 'images/jammukashmir.jpg'},
+  {id: 'la', name: 'Leh Ladakh', scene: 'ladakh', img: 'images/lehladakh.jpg'},
+  {id: 'rj', name: 'Rajasthan', scene: 'desert', img: 'images/rajasthan.jpg'},
+  {id: 'uk', name: 'Uttarakhand', scene: 'river', img: 'images/uttarakhand.png'},
+  {id: 'dl', name: 'Delhi & Agra', scene: 'city', img: 'images/delhiagra.jpg'},
+  {id: 'bt', name: 'Bhutan', scene: 'monastery', img: 'images/bhutan.jpg'},
+  {id: 'th', name: 'Thailand', scene: 'pagoda', img: 'images/thailand.jpg'}
 ];
 
 /* Theme photos: save them as images/themes/<file> below. Until a file exists the illustration shows. */
@@ -51,7 +51,7 @@ window.PACKAGES = [
       ['Cooking and antiques', 'Cook a Chettinad lunch with a local family. Evening at the antique market.'],
       ['Departure', 'Drive back to Madurai Airport.']]},
   {id: 'tn-ooty-kodai', state: 'tn', title: 'Ooty & Kodaikanal Hill Station Tour', days: 6, price: 18999, mrp: 22999,
-    themes: ['Family', 'Honeymoon', 'Nature'], scene: 'hills',
+    themes: ['Family', 'Honeymoon', 'Nature'], scene: 'hills', img: 'images/munnar-tea-hills.jpg',
     arrive: 'Coimbatore Airport / Railway Station', route: 'Coimbatore → Ooty → Kodaikanal → Madurai',
     highlights: ['Nilgiri Mountain Railway toy train ride', 'Doddabetta Peak viewpoint', 'Boating on Ooty Lake and Kodaikanal Lake', 'Coaker\'s Walk and Pillar Rocks', 'Tea estates of Coonoor'],
     itinerary: [
@@ -62,7 +62,7 @@ window.PACKAGES = [
       ['Kodaikanal sightseeing', 'Coaker\'s Walk, Pillar Rocks, Bryant Park and Kodaikanal Lake boating.'],
       ['Departure from Madurai', 'Drive down to Madurai for your onward train or flight.']]},
   {id: 'tn-temple-trail', state: 'tn', title: 'Madurai, Rameswaram & Kanyakumari Tour', days: 5, price: 15499,
-    themes: ['Family', 'Solo'], scene: 'temple',
+    themes: ['Family', 'Solo'], scene: 'temple', img: 'images/bharatanatyam-heritage.jpg',
     arrive: 'Madurai Airport / Railway Station', route: 'Madurai → Rameswaram → Kanyakumari',
     highlights: ['Meenakshi Amman Temple, Madurai', 'Ramanathaswamy Temple corridors', 'Pamban Bridge and Dhanushkodi', 'Vivekananda Rock Memorial', 'Sunset at the tip of India'],
     itinerary: [
@@ -72,7 +72,7 @@ window.PACKAGES = [
       ['Kanyakumari', 'Sunrise, ferry to the Vivekananda Rock Memorial and Thiruvalluvar Statue. Sunset at the beach.'],
       ['Departure', 'Drive to Trivandrum or Madurai for your onward journey.']]},
   {id: 'tn-pondy', state: 'tn', title: 'Pondicherry Weekend Getaway', days: 3, price: 8999, mrp: 10999,
-    themes: ['Friends/Group', 'Honeymoon', 'Solo'], scene: 'beach',
+    themes: ['Friends/Group', 'Honeymoon', 'Solo'], scene: 'beach', img: 'images/chola-trail.jpg',
     arrive: 'Chennai', route: 'Chennai → Mahabalipuram → Pondicherry',
     highlights: ['French Quarter heritage walk', 'Promenade Beach at sunrise', 'Auroville and the Matrimandir viewpoint', 'Paradise Beach boat ride', 'Stop at Mahabalipuram on the way'],
     itinerary: [
@@ -105,7 +105,7 @@ window.PACKAGES = [
       ['Departure', 'Check out from the houseboat and drive to Cochin.']],
     inc: ['One night on a shared-category houseboat with meals']},
   {id: 'kl-honeymoon', state: 'kl', title: 'Kerala Honeymoon with Kovalam Beach', days: 7, price: 24999, mrp: 29999,
-    themes: ['Honeymoon'], scene: 'beach',
+    themes: ['Honeymoon'], scene: 'beach', img: 'images/themes/honeymoon.jpg',
     arrive: 'Cochin Airport', route: 'Cochin → Munnar → Thekkady → Alleppey → Kovalam',
     highlights: ['Candle-light dinner in Munnar', 'Private houseboat night', 'Kovalam lighthouse beach', 'Flower bed decoration on arrival'],
     itinerary: [
@@ -118,7 +118,7 @@ window.PACKAGES = [
       ['Departure', 'Drop at Trivandrum Airport.']],
     inc: ['Private houseboat night with meals', 'One candle-light dinner', 'Honeymoon room decoration']},
   {id: 'kl-short', state: 'kl', title: 'Kochi & Munnar Short Break', days: 4, price: 12999,
-    themes: ['Family', 'Nature', 'Solo'], scene: 'hills',
+    themes: ['Family', 'Nature', 'Solo'], scene: 'hills', img: 'images/munnar-tea-hills.jpg',
     arrive: 'Cochin Airport', route: 'Cochin → Munnar → Cochin',
     highlights: ['Fort Kochi heritage walk', 'Two nights in the tea hills', 'Cheeyappara and Valara waterfalls'],
     itinerary: [
@@ -142,7 +142,7 @@ window.PACKAGES = [
       ['Departure', 'Drop at Port Blair Airport.']],
     inc: ['Private catamaran day', 'One guided dive with equipment']},
   {id: 'an-islands', state: 'an', title: 'Andaman 4 Nights 5 Days Island Tour', days: 5, price: 21999, mrp: 25999,
-    themes: ['Family', 'Honeymoon', 'Friends/Group'], scene: 'beach',
+    themes: ['Family', 'Honeymoon', 'Friends/Group'], scene: 'beach', img: 'images/andaman-coral.jpg',
     arrive: 'Port Blair Airport', route: 'Port Blair → Havelock → Neil Island',
     highlights: ['Cellular Jail light and sound show', 'Radhanagar Beach, Havelock', 'Natural Bridge, Neil Island', 'Laxmanpur Beach sunset', 'Inter-island ferries included'],
     itinerary: [
@@ -153,7 +153,7 @@ window.PACKAGES = [
       ['Departure', 'Drop at Port Blair Airport.']],
     inc: ['Ferry tickets Port Blair – Havelock – Neil – Port Blair']},
   {id: 'an-honeymoon', state: 'an', title: 'Andaman Honeymoon Special', days: 6, price: 27999, mrp: 33999,
-    themes: ['Honeymoon'], scene: 'beach',
+    themes: ['Honeymoon'], scene: 'beach', img: 'images/andaman-coral.jpg',
     arrive: 'Port Blair Airport', route: 'Port Blair → Havelock → Neil → Port Blair',
     highlights: ['Beach-facing room in Havelock', 'Candle-light dinner on the beach', 'Ross Island (Netaji Subhas Chandra Bose Dweep)', 'Glass-bottom boat at North Bay'],
     itinerary: [
@@ -167,7 +167,7 @@ window.PACKAGES = [
 
   /* ---------- Sikkim & Darjeeling ---------- */
   {id: 'sk-north', state: 'sk', title: 'Gangtok 5 Days with North Sikkim (Lachung)', days: 5, price: 15999, mrp: 18999,
-    themes: ['Family', 'Friends/Group', 'Nature'], scene: 'snow',
+    themes: ['Family', 'Friends/Group', 'Nature'], scene: 'snow', img: 'images/sikkimdarjlind.jpg',
     arrive: 'Bagdogra Airport / NJP Railway Station', route: 'Bagdogra → Gangtok → Lachung → Gangtok',
     highlights: ['Yumthang Valley in North Sikkim', 'Zero Point (weather permitting)', 'Tsomgo Lake and Baba Mandir', 'MG Marg evening walk', 'Permits arranged by us'],
     itinerary: [
@@ -178,7 +178,7 @@ window.PACKAGES = [
       ['Departure', 'Drive back to Bagdogra or NJP.']],
     prep: ['Carry 4 passport-size photos and ID copies for North Sikkim permits.']},
   {id: 'sk-nathula', state: 'sk', title: 'Gangtok 4 Days with Nathula Pass & City Tour', days: 4, price: 9999,
-    themes: ['Family', 'Friends/Group', 'Solo'], scene: 'snow',
+    themes: ['Family', 'Friends/Group', 'Solo'], scene: 'snow', img: 'images/sikkimdarjlind.jpg',
     arrive: 'Bagdogra Airport / NJP Railway Station', route: 'Bagdogra → Gangtok',
     highlights: ['Nathula Pass on the India–China border (permit based)', 'Tsomgo Lake', 'Rumtek Monastery', 'Banjhakri Falls and Ganesh Tok'],
     itinerary: [
@@ -188,7 +188,7 @@ window.PACKAGES = [
       ['Departure', 'Drive back to Bagdogra or NJP.']],
     prep: ['Nathula permits are issued to Indian nationals only. Carry photo ID and passport-size photos.']},
   {id: 'sk-pelling', state: 'sk', title: 'Gangtok & Pelling Tour Package', days: 6, price: 18999,
-    themes: ['Nature', 'Family', 'Solo'], scene: 'monastery',
+    themes: ['Nature', 'Family', 'Solo'], scene: 'monastery', img: 'images/sikkimdarjlind.jpg',
     arrive: 'Bagdogra Airport / NJP Railway Station', route: 'Bagdogra → Gangtok → Pelling',
     highlights: ['Kanchenjunga views from Pelling', 'Pemayangtse Monastery and Rabdentse Ruins', 'Pelling Skywalk', 'Khecheopalri Lake'],
     itinerary: [
@@ -199,7 +199,7 @@ window.PACKAGES = [
       ['Pelling', 'Pemayangtse Monastery, Rabdentse Ruins, the Skywalk and Khecheopalri Lake.'],
       ['Departure', 'Drive to Bagdogra or NJP.']]},
   {id: 'sk-darjeeling', state: 'sk', title: 'Darjeeling 3 Days Tea & Toy Train Tour', days: 3, price: 8499,
-    themes: ['Family', 'Honeymoon', 'Nature'], scene: 'hills',
+    themes: ['Family', 'Honeymoon', 'Nature'], scene: 'hills', img: 'images/sikkimdarjlind.jpg',
     arrive: 'Bagdogra Airport / NJP Railway Station', route: 'Bagdogra → Darjeeling',
     highlights: ['Tiger Hill sunrise over Kanchenjunga', 'Batasia Loop and Ghoom Monastery', 'Darjeeling Himalayan Railway joy ride', 'Tea garden visit'],
     itinerary: [
@@ -207,7 +207,7 @@ window.PACKAGES = [
       ['Darjeeling sightseeing', 'Tiger Hill sunrise, Batasia Loop, Ghoom Monastery, the Himalayan Mountaineering Institute and a tea garden.'],
       ['Toy train and departure', 'Joy ride on the toy train (subject to tickets), then drive to Bagdogra.']]},
   {id: 'sk-combo', state: 'sk', title: 'Darjeeling, Gangtok & Kalimpong Tour', days: 7, price: 22999, mrp: 26999,
-    themes: ['Family', 'Friends/Group'], scene: 'monastery',
+    themes: ['Family', 'Friends/Group'], scene: 'monastery', img: 'images/sikkimdarjlind.jpg',
     arrive: 'Bagdogra Airport / NJP Railway Station', route: 'Bagdogra → Darjeeling → Kalimpong → Gangtok',
     highlights: ['Tiger Hill sunrise', 'Kalimpong monasteries and flower nurseries', 'Tsomgo Lake', 'MG Marg, Gangtok'],
     itinerary: [
@@ -221,7 +221,7 @@ window.PACKAGES = [
 
   /* ---------- Himachal & Spiti ---------- */
   {id: 'hp-shimla-manali', state: 'hp', title: 'Shimla Manali 6 Days Tour Package', days: 6, price: 17999, mrp: 21999,
-    themes: ['Family', 'Honeymoon', 'Friends/Group'], scene: 'snow',
+    themes: ['Family', 'Honeymoon', 'Friends/Group'], scene: 'snow', img: 'images/himachalandspiti.jpg',
     arrive: 'Chandigarh / Delhi', route: 'Chandigarh → Shimla → Manali',
     highlights: ['Mall Road and the Ridge, Shimla', 'Kufri snow point', 'Solang Valley', 'Atal Tunnel to Sissu', 'Hadimba Temple and Old Manali'],
     itinerary: [
@@ -232,7 +232,7 @@ window.PACKAGES = [
       ['Manali', 'Hadimba Temple, Vashisht hot springs and Old Manali cafés.'],
       ['Departure', 'Drive back to Chandigarh.']]},
   {id: 'hp-volvo', state: 'hp', title: 'Manali 4 Nights 5 Days from Delhi by Volvo', days: 5, price: 7500,
-    themes: ['Friends/Group', 'Solo'], scene: 'snow',
+    themes: ['Friends/Group', 'Solo'], scene: 'snow', img: 'images/himachalandspiti.jpg',
     arrive: 'Delhi (Volvo boarding point)', route: 'Delhi → Manali → Delhi (overnight Volvo)',
     highlights: ['Overnight AC Volvo both ways', 'Solang Valley', 'Hadimba Temple', 'Mall Road, Manali'],
     itinerary: [
@@ -243,7 +243,7 @@ window.PACKAGES = [
       ['Arrive Delhi', 'Morning arrival in Delhi.']],
     inc: ['AC Volvo seats Delhi – Manali – Delhi']},
   {id: 'hp-dharamshala', state: 'hp', title: 'Dharamshala & Dalhousie 5 Days from Chandigarh', days: 5, price: 12400,
-    themes: ['Family', 'Nature', 'Solo'], scene: 'monastery',
+    themes: ['Family', 'Nature', 'Solo'], scene: 'monastery', img: 'images/himachalandspiti.jpg',
     arrive: 'Chandigarh', route: 'Chandigarh → Dharamshala → Dalhousie',
     highlights: ['McLeod Ganj and the Dalai Lama Temple', 'Bhagsu Nag waterfall', 'Khajjiar meadow', 'HPCA cricket stadium'],
     itinerary: [
@@ -253,7 +253,7 @@ window.PACKAGES = [
       ['Khajjiar', 'Day trip to the Khajjiar meadow and lake.'],
       ['Departure', 'Drive back to Chandigarh or Pathankot.']]},
   {id: 'hp-spiti', state: 'hp', title: 'Spiti Valley 8 Days: Shimla to Manali', days: 8, price: 27500,
-    themes: ['Adventure', 'Friends/Group', 'Solo'], scene: 'ladakh', tm: true,
+    themes: ['Adventure', 'Friends/Group', 'Solo'], scene: 'ladakh', tm: true, img: 'images/himachalandspiti.jpg',
     arrive: 'Shimla', route: 'Shimla → Kalpa → Nako → Kaza → Chandratal → Manali',
     highlights: ['Full Spiti circuit by road', 'Key Monastery and Kibber village', 'Chandratal Lake', 'Kunzum Pass', 'Tabo and Nako'],
     itinerary: [
@@ -267,7 +267,7 @@ window.PACKAGES = [
       ['Departure', 'Drop at Manali bus stand.']],
     prep: ['The Kunzum Pass road usually opens only in summer. We confirm road status before you travel.', 'Spend your first day resting to adjust to altitude.']},
   {id: 'hp-chandratal', state: 'hp', title: '4 Days Spiti from Manali via Atal Tunnel & Chandratal', days: 4, price: 15990,
-    themes: ['Adventure', 'Solo'], scene: 'ladakh',
+    themes: ['Adventure', 'Solo'], scene: 'ladakh', img: 'images/himachalandspiti.jpg',
     arrive: 'Manali', route: 'Manali → Chandratal → Kaza → Manali',
     highlights: ['Atal Tunnel', 'Night in a Chandratal camp', 'Key Monastery', 'Kunzum Pass'],
     itinerary: [
@@ -279,7 +279,7 @@ window.PACKAGES = [
 
   /* ---------- Jammu & Kashmir ---------- */
   {id: 'jk-srinagar', state: 'jk', title: 'Srinagar 5 Nights 6 Days – Sonmarg, Gulmarg & Pahalgam', days: 6, price: 16000, mrp: 19999,
-    themes: ['Family', 'Honeymoon', 'Friends/Group'], scene: 'lake',
+    themes: ['Family', 'Honeymoon', 'Friends/Group'], scene: 'lake', img: 'images/jammukashmir.jpg',
     arrive: 'Srinagar Airport', route: 'Srinagar → Sonmarg → Gulmarg → Pahalgam',
     highlights: ['Shikara ride on Dal Lake', 'Night on a houseboat', 'Gulmarg Gondola', 'Betaab Valley, Pahalgam', 'Mughal Gardens'],
     itinerary: [
@@ -291,7 +291,7 @@ window.PACKAGES = [
       ['Departure', 'Nishat and Shalimar Gardens, then drop at Srinagar Airport.']],
     inc: ['One night on a deluxe houseboat', 'One-hour shikara ride']},
   {id: 'jk-honeymoon', state: 'jk', title: 'Kashmir Honeymoon with Houseboat Stay', days: 5, price: 19999,
-    themes: ['Honeymoon'], scene: 'lake',
+    themes: ['Honeymoon'], scene: 'lake', img: 'images/jammukashmir.jpg',
     arrive: 'Srinagar Airport', route: 'Srinagar → Gulmarg → Pahalgam',
     highlights: ['Flower decoration on the houseboat', 'Sunset shikara ride', 'Gulmarg meadows', 'Lidder river walks in Pahalgam'],
     itinerary: [
@@ -302,7 +302,7 @@ window.PACKAGES = [
       ['Departure', 'Drop at Srinagar Airport.']],
     inc: ['Honeymoon decoration on arrival']},
   {id: 'jk-gulmarg', state: 'jk', title: 'Gulmarg Snow Break', days: 3, price: 7499,
-    themes: ['Adventure', 'Friends/Group'], scene: 'snow',
+    themes: ['Adventure', 'Friends/Group'], scene: 'snow', img: 'images/jammukashmir.jpg',
     arrive: 'Srinagar Airport', route: 'Srinagar → Gulmarg',
     highlights: ['Gulmarg Gondola', 'Skiing taster session (in season)', 'Snow meadows'],
     itinerary: [
@@ -310,7 +310,7 @@ window.PACKAGES = [
       ['Gulmarg', 'Gondola ride and snow activities (charges extra).'],
       ['Departure', 'Drive to Srinagar Airport.']]},
   {id: 'jk-grand', state: 'jk', title: '7 Nights 8 Days Kashmir with Doodhpathri', days: 8, price: 24999, mrp: 28999,
-    themes: ['Family', 'Nature'], scene: 'lake',
+    themes: ['Family', 'Nature'], scene: 'lake', img: 'images/jammukashmir.jpg',
     arrive: 'Srinagar Airport', route: 'Srinagar → Sonmarg → Gulmarg → Doodhpathri → Pahalgam',
     highlights: ['Doodhpathri meadows', 'Two nights in Pahalgam', 'Houseboat night', 'Gulmarg Gondola'],
     itinerary: [
@@ -325,7 +325,7 @@ window.PACKAGES = [
 
   /* ---------- Leh Ladakh ---------- */
   {id: 'la-classic', state: 'la', title: 'Leh, Nubra & Pangong 6 Days', days: 6, price: 24999, mrp: 28999,
-    themes: ['Adventure', 'Friends/Group', 'Family'], scene: 'ladakh',
+    themes: ['Adventure', 'Friends/Group', 'Family'], scene: 'ladakh', img: 'images/lehladakh.jpg',
     arrive: 'Leh Airport', route: 'Leh → Nubra → Pangong → Leh',
     highlights: ['Khardung La', 'Hunder sand dunes and double-humped camels', 'Pangong Tso', 'Thiksey Monastery', 'Magnetic Hill and the Indus–Zanskar confluence'],
     itinerary: [
@@ -337,7 +337,7 @@ window.PACKAGES = [
       ['Departure', 'Drop at Leh Airport.']],
     prep: ['Leh is above 3,500 m. Do not plan activity on the first day.', 'Permits for Nubra and Pangong are arranged by us; carry photo ID.']},
   {id: 'la-bike', state: 'la', title: 'Ladakh Bike Trip 8 Days', days: 8, price: 32999,
-    themes: ['Adventure', 'Friends/Group', 'Solo'], scene: 'ladakh', tm: true,
+    themes: ['Adventure', 'Friends/Group', 'Solo'], scene: 'ladakh', tm: true, img: 'images/lehladakh.jpg',
     arrive: 'Leh Airport', route: 'Leh → Nubra → Turtuk → Pangong → Leh',
     highlights: ['Royal Enfield 350 for the trip', 'Backup vehicle and mechanic', 'Turtuk village', 'Ride over Khardung La and Chang La'],
     itinerary: [
@@ -352,7 +352,7 @@ window.PACKAGES = [
     inc: ['Royal Enfield bike with fuel', 'Backup vehicle with mechanic'],
     prep: ['A valid two-wheeler driving licence is required.']},
   {id: 'la-short', state: 'la', title: 'Leh Ladakh Short Escape', days: 5, price: 18999,
-    themes: ['Family', 'Nature'], scene: 'ladakh',
+    themes: ['Family', 'Nature'], scene: 'ladakh', img: 'images/lehladakh.jpg',
     arrive: 'Leh Airport', route: 'Leh → Pangong → Leh',
     highlights: ['Pangong Tso overnight camp', 'Shanti Stupa sunset', 'Hemis and Thiksey monasteries'],
     itinerary: [
@@ -364,7 +364,7 @@ window.PACKAGES = [
 
   /* ---------- Rajasthan ---------- */
   {id: 'rj-jaisalmer', state: 'rj', title: '3 Days Jaisalmer Tour with Desert Camp', days: 3, price: 9999,
-    themes: ['Friends/Group', 'Adventure', 'Family'], scene: 'desert',
+    themes: ['Friends/Group', 'Adventure', 'Family'], scene: 'desert', img: 'images/rajasthan.jpg',
     arrive: 'Jaisalmer Railway Station / Airport', route: 'Jaisalmer → Sam Dunes',
     highlights: ['Jaisalmer Fort (Sonar Quila)', 'Patwon ki Haveli', 'Camel safari at Sam Sand Dunes', 'Night in a desert camp with folk show'],
     itinerary: [
@@ -372,7 +372,7 @@ window.PACKAGES = [
       ['Sam Sand Dunes', 'Kuldhara village, then camel safari and a night at a desert camp.'],
       ['Departure', 'Morning drive back to Jaisalmer.']]},
   {id: 'rj-udaipur', state: 'rj', title: '5 Days Udaipur Tour with Chittorgarh', days: 5, price: 16999,
-    themes: ['Honeymoon', 'Family'], scene: 'palace',
+    themes: ['Honeymoon', 'Family'], scene: 'palace', img: 'images/rajasthan.jpg',
     arrive: 'Udaipur Airport / Railway Station', route: 'Udaipur → Chittorgarh → Udaipur',
     highlights: ['Boat ride on Lake Pichola', 'City Palace, Udaipur', 'Chittorgarh Fort', 'Sajjangarh Monsoon Palace sunset'],
     itinerary: [
@@ -382,7 +382,7 @@ window.PACKAGES = [
       ['Udaipur', 'Fateh Sagar Lake and sunset at Sajjangarh.'],
       ['Departure', 'Drop at Udaipur Airport or station.']]},
   {id: 'rj-jodhpur', state: 'rj', title: 'Jodhpur Blue City Tour', days: 5, price: 16500,
-    themes: ['Family', 'Solo'], scene: 'desert',
+    themes: ['Family', 'Solo'], scene: 'desert', img: 'images/rajasthan.jpg',
     arrive: 'Jodhpur Airport / Railway Station', route: 'Jodhpur → Osian → Jodhpur',
     highlights: ['Mehrangarh Fort', 'Jaswant Thada', 'Umaid Bhawan Palace museum', 'Osian temples and dunes'],
     itinerary: [
@@ -392,7 +392,7 @@ window.PACKAGES = [
       ['Jodhpur', 'Umaid Bhawan museum and a blue-city walk.'],
       ['Departure', 'Drop at Jodhpur Airport or station.']]},
   {id: 'rj-royal', state: 'rj', title: 'Royal Rajasthan 9 Days', days: 9, price: 39999, mrp: 46999,
-    themes: ['Family', 'Honeymoon'], scene: 'palace', tm: true,
+    themes: ['Family', 'Honeymoon'], scene: 'palace', tm: true, img: 'images/rajasthan.jpg',
     arrive: 'Jaipur Airport', route: 'Jaipur → Jodhpur → Jaisalmer → Udaipur',
     highlights: ['Amber Fort and Hawa Mahal', 'Mehrangarh Fort', 'Desert camp at Sam', 'Lake Pichola boat ride', 'Heritage hotels'],
     itinerary: [
@@ -408,7 +408,7 @@ window.PACKAGES = [
 
   /* ---------- Uttarakhand ---------- */
   {id: 'uk-nainital', state: 'uk', title: 'Nainital Lake Tour Package', days: 4, price: 9999,
-    themes: ['Family', 'Honeymoon'], scene: 'lake',
+    themes: ['Family', 'Honeymoon'], scene: 'lake', img: 'images/uttarakhand.png',
     arrive: 'Kathgodam Railway Station / Delhi', route: 'Kathgodam → Nainital → Bhimtal',
     highlights: ['Boating on Naini Lake', 'Snow View Point cable car', 'Bhimtal, Sattal and Naukuchiatal', 'Mall Road'],
     itinerary: [
@@ -417,7 +417,7 @@ window.PACKAGES = [
       ['Lake tour', 'Bhimtal, Sattal and Naukuchiatal.'],
       ['Departure', 'Drop at Kathgodam.']]},
   {id: 'uk-mussoorie', state: 'uk', title: 'Mussoorie Tour Package from Delhi', days: 3, price: 8999,
-    themes: ['Family', 'Friends/Group'], scene: 'hills',
+    themes: ['Family', 'Friends/Group'], scene: 'hills', img: 'images/uttarakhand.png',
     arrive: 'Delhi / Dehradun', route: 'Delhi → Mussoorie → Delhi',
     highlights: ['Kempty Falls', 'Gun Hill ropeway', 'Lal Tibba viewpoint', 'Mall Road evening'],
     itinerary: [
@@ -425,7 +425,7 @@ window.PACKAGES = [
       ['Mussoorie', 'Kempty Falls, Gun Hill ropeway and Lal Tibba.'],
       ['Return to Delhi', 'Drive back to Delhi.']]},
   {id: 'uk-rishikesh', state: 'uk', title: 'Haridwar & Rishikesh Spiritual Tour', days: 4, price: 10999, mrp: 12999,
-    themes: ['Solo', 'Family', 'Adventure'], scene: 'river',
+    themes: ['Solo', 'Family', 'Adventure'], scene: 'river', img: 'images/uttarakhand.png',
     arrive: 'Delhi / Haridwar Railway Station', route: 'Haridwar → Rishikesh',
     highlights: ['Ganga Aarti at Har Ki Pauri', 'Evening aarti at Triveni Ghat', 'River rafting from Shivpuri', 'Ram Jhula and the Beatles Ashram'],
     itinerary: [
@@ -434,7 +434,7 @@ window.PACKAGES = [
       ['Rishikesh', 'Rafting from Shivpuri (extra), Ram Jhula, Beatles Ashram and Triveni Ghat aarti.'],
       ['Departure', 'Drop at Haridwar or Dehradun.']]},
   {id: 'uk-grand', state: 'uk', title: 'Uttarakhand Tour Package from Delhi', days: 5, price: 17999,
-    themes: ['Family', 'Nature', 'Friends/Group'], scene: 'river',
+    themes: ['Family', 'Nature', 'Friends/Group'], scene: 'river', img: 'images/uttarakhand.png',
     arrive: 'Delhi', route: 'Delhi → Rishikesh → Mussoorie → Delhi',
     highlights: ['Rishikesh Ganga Aarti', 'Mussoorie Mall Road', 'Kempty Falls', 'Dehradun Robber\'s Cave'],
     itinerary: [
@@ -446,7 +446,7 @@ window.PACKAGES = [
 
   /* ---------- Delhi & Agra ---------- */
   {id: 'dl-delhi-agra', state: 'dl', title: '3 Days Delhi Agra Tour Package – Delhi Sightseeing & Taj Mahal Tour', days: 3, price: 7800, mrp: 10000,
-    themes: ['Family', 'Honeymoon'], scene: 'city', tm: true,
+    themes: ['Family', 'Honeymoon'], scene: 'city', tm: true, img: 'images/delhiagra.jpg',
     arrive: 'Delhi Railway Station / Airport', route: 'Delhi → Agra → Delhi',
     highlights: ['Delhi local sightseeing covering major historical landmarks', 'Visit the magnificent Qutub Minar and Humayun\'s Tomb', 'Explore the peaceful Lotus Temple', 'Photo stop at India Gate and Rashtrapati Bhavan', 'Visit the historic Red Fort', 'Enjoy shopping and leisure time at Connaught Place', 'Comfortable road journey from Delhi to Agra', 'Explore the grand Agra Fort', 'Visit the world-famous Taj Mahal', 'Convenient Delhi Railway Station/Airport pickup and drop'],
     itinerary: [
@@ -455,7 +455,7 @@ window.PACKAGES = [
       ['Agra to Delhi & Departure', 'Sunrise at the Taj (optional), drive back to Delhi for your drop.']],
     inc: ['Overnight stay in Delhi', 'Overnight stay in Agra']},
   {id: 'dl-golden', state: 'dl', title: 'Golden Triangle 6 Days – Delhi, Agra & Jaipur', days: 6, price: 19999, mrp: 23999,
-    themes: ['Family', 'Solo'], scene: 'city',
+    themes: ['Family', 'Solo'], scene: 'city', img: 'images/delhiagra.jpg',
     arrive: 'Delhi Airport', route: 'Delhi → Agra → Jaipur → Delhi',
     highlights: ['Taj Mahal at sunrise', 'Fatehpur Sikri', 'Amber Fort, Jaipur', 'Old Delhi rickshaw ride'],
     itinerary: [
@@ -468,7 +468,7 @@ window.PACKAGES = [
 
   /* ---------- Bhutan ---------- */
   {id: 'bt-classic', state: 'bt', title: 'Bhutan 6 Days – Thimphu, Punakha & Paro', days: 6, price: 34999, mrp: 39999,
-    themes: ['Family', 'Honeymoon', 'Nature'], scene: 'monastery', tm: true,
+    themes: ['Family', 'Honeymoon', 'Nature'], scene: 'monastery', tm: true, img: 'images/bhutan.jpg',
     arrive: 'Bagdogra Airport', route: 'Bagdogra → Phuentsholing → Thimphu → Punakha → Paro',
     highlights: ['Tiger\'s Nest (Taktsang) hike', 'Punakha Dzong and suspension bridge', 'Dochula Pass and its 108 chortens', 'Buddha Dordenma, Thimphu'],
     itinerary: [
@@ -481,7 +481,7 @@ window.PACKAGES = [
     exc: ['Bhutan Sustainable Development Fee (SDF), charged per night by the Government of Bhutan'],
     prep: ['Indian citizens need a valid passport or voter ID card to enter Bhutan.']},
   {id: 'bt-short', state: 'bt', title: 'Paro & Thimphu 5 Days', days: 5, price: 29999,
-    themes: ['Solo', 'Honeymoon'], scene: 'monastery',
+    themes: ['Solo', 'Honeymoon'], scene: 'monastery', img: 'images/bhutan.jpg',
     arrive: 'Paro Airport', route: 'Paro → Thimphu → Paro',
     highlights: ['Tiger\'s Nest hike', 'Chele La Pass', 'Memorial Chorten and Tashichho Dzong', 'Traditional Bhutanese dinner'],
     itinerary: [
@@ -495,7 +495,7 @@ window.PACKAGES = [
 
   /* ---------- Thailand ---------- */
   {id: 'th-bkk-pattaya', state: 'th', title: '5 Days Pattaya Bangkok Tour Package', days: 5, price: 23500, mrp: 27999,
-    themes: ['Friends/Group', 'Honeymoon', 'Family'], scene: 'pagoda',
+    themes: ['Friends/Group', 'Honeymoon', 'Family'], scene: 'pagoda', img: 'images/thailand.jpg',
     arrive: 'Bangkok Suvarnabhumi Airport', route: 'Bangkok → Pattaya → Bangkok',
     highlights: ['Coral Island speedboat trip', 'Alcazar show, Pattaya', 'Grand Palace and Wat Arun', 'Safari World and Marine Park'],
     itinerary: [
@@ -507,7 +507,7 @@ window.PACKAGES = [
     exc: ['Thailand visa or visa-on-arrival fees, if applicable'],
     prep: ['Your passport must be valid for at least six months from arrival.', 'Check current visa rules for Indian passport holders before booking.']},
   {id: 'th-phuket-krabi', state: 'th', title: 'Phuket & Krabi Island Holiday', days: 6, price: 34999,
-    themes: ['Honeymoon', 'Adventure'], scene: 'beach',
+    themes: ['Honeymoon', 'Adventure'], scene: 'beach', img: 'images/thailand.jpg',
     arrive: 'Phuket Airport', route: 'Phuket → Krabi',
     highlights: ['Phi Phi Islands day trip', 'Phang Nga Bay and James Bond Island', 'Krabi 4-island tour', 'Railay Beach'],
     itinerary: [
